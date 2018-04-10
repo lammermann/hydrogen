@@ -1,0 +1,27 @@
+Hydrogen - very composable c interfaces
+=======================================
+Hydrogen is highly inspired by http://libdill.org/[libdill] where I first saw
+this technique (in fakt it is mostly extracted from there). However it serves a
+different purpose as its intended use is a general pupose c library for
+creating c interfaces and has no connection to concorrency or networking.
+
+Installation
+------------
+This is a very smal library. Just put `hydrogen.h` in your inclusion path. Than
+add `hydrogen.c` to the compiled files.
+
+Usage
+-----
+Of course you'll have to include the header at the beginnig of your code.
+
+[source, c]
+................................................................................
+include "hydrogen.h"
+................................................................................
+
+The name
+--------
+Hydrogen is a very simple element with only one electron. It's very light and
+easly composable with other elements to form molecules. It's possible to get
+very much energy out of it (think of the sun, fuel cells or H-bombs) but use it
+with care ...
