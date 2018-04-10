@@ -1,24 +1,44 @@
 Hydrogen - very composable c interfaces
 =======================================
 
-Hydrogen is highly inspired by http://libdill.org/[libdill] where I first saw
-this technique (in fakt it is mostly extracted from there). However it serves a
-different purpose as its intended use is a general pupose c library for
-creating c interfaces and has no connection to concorrency or networking.
+In some Languages you have https://en.wikipedia.org/wiki/Mixin[Mixins] which
+help you to devide problems into generic interfaces and their implementations.
+This allows easier code reuse and less complex code as a project evolves. I
+never found this functionality for C so thats what this library is trying to
+provide.
 
 Installation
 ------------
 This is a very smal library. Just put `hydrogen.h` in your inclusion path. Than
 add `hydrogen.c` to the compiled files.
 
-Usage
------
-Of course you'll have to include the header at the beginnig of your code.
+Idea
+----
+By providing a generic interface mechanism this library tries to adress several
+goals:
 
-[source, c]
-................................................................................
-include "hydrogen.h"
-................................................................................
+* Improve code resuability.
+* Reduce of code complexity.
+* Simpler, smaller and less changing header files.
+* More portable libraries.
+** since it's written in ANSI C you should be able to port it nearly
+   everywhere.
+** because the interfaces created with it can be very generic and isolated of
+   the implementations you should be able to port denending libraries nearly
+   everywhere.
+
+It introduces the struct `h_vfs` which serves as a generic class. Than it lets
+you define interfaces as sets of functions that a class can implement. All
+functions implementing such an interface get a first argument `h_vfs *self`.
+Since all classes use the same type a class can implement an arbitrary number
+of different interfaces without conflict.
+
+References
+----------
+Hydrogen is highly inspired by http://libdill.org/[libdill] where I first saw
+this technique (in fakt it is mostly extracted from there). However it serves a
+different purpose as its intended use is a general pupose c library for
+creating c interfaces and has no connection to concorrency or networking.
 
 The name
 --------
